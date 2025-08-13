@@ -26,8 +26,9 @@ How it Works
 
  Project Structure
 
-VIRTUAL-KEYBOARD/
-│
+VIRTUAL-KEYBOARD
+
+
 ├── virtual_keyboard.py  
 ├── config.py            
 ├── requirements.txt     
@@ -46,21 +47,26 @@ pip install -r requirements.txt
 opencv-python
 numpy
 cvzone
+pyautogui
+torch
+torchvision
+ultralytics
 
 
-## 🎯 How to Run
+ How to Run
 
 1. Clone the repository
 
 git clone https://github.com/Satishhhh989/Aerotype.git
+
 cd Aerotype
 
 
-2. **Install dependencies**
+2.Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the program**
+3.Run the program
 bash
 python virtual_keyboard.py
