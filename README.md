@@ -43,7 +43,7 @@ Install dependencies using:
 pip install -r requirements.txt
 ```
 `requirements.txt` should contain:
-
+```
 opencv-python
 numpy
 cvzone
@@ -51,7 +51,7 @@ pyautogui
 torch
 torchvision
 ultralytics
-
+```
 
  How to Run
 
@@ -67,6 +67,23 @@ cd Aerotype
 pip install -r requirements.txt
 ```
 
-3.Run the program
+3. Using Laptop Webcam
+Update config.CAM_INDEX to your laptop’s webcam index (usually 0) in config.py and run:
+bash
+``python virtual_keyboard.py``
+
+
+5. Using Mobile Camera via IP Webcam
+Install IP Webcam (Android) or similar camera streaming app on your phone.
+Connect your phone and PC to the same Wi-Fi network.
+Open the app and start the server — note the stream URL (usually something like http://192.168.x.x:8080/video).
+In virtual_keyboard.py, replace:
+
+``cap = cv2.VideoCapture(config.CAM_INDEX)``
+with:
+
+``cap = cv2.VideoCapture("http://<your_phone_ip>:8080/video")``
+
+5.Run the program
 bash
 python virtual_keyboard.py
