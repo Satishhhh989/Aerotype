@@ -1,0 +1,7 @@
+opencv-python
+numpy
+cvzone
+pyautogui
+torch
+torchvision
+ultralytics
