@@ -76,7 +76,7 @@ bash
 5. Using Mobile Camera via IP Webcam
 Install IP Webcam (Android) or similar camera streaming app on your phone.
 Connect your phone and PC to the same Wi-Fi network.
-Open the app and start the server — note the stream URL (usually something like http://192.168.x.x:8080/video).
+Open the app and start the server  note the stream URL (usually something like http://192.168.x.x:8080/video).
 In virtual_keyboard.py, replace:
 
 ``cap = cv2.VideoCapture(config.CAM_INDEX)``
