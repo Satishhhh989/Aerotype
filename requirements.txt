@@ -5,3 +5,5 @@ pyautogui
 torch
 torchvision
 ultralytics
+mediapipe
+imutils
