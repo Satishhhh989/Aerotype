@@ -1,89 +1,82 @@
-Air-Typing Virtual Keyboard (Prototype)
+# AEROTYPE (Enhanced Prototype)
 
-I made this Python-based virtual keyboard that lets you type in the air using hand gestures via OpenCV (no Mediapipe).  
-Finger pointing moves the cursor, palm open hovers/selects, and a fist presses keys.  
-Still under training  this is just a prototype, so expect more upgrades soon.
+This project is a Python-based virtual keyboard that allows you to type in the air using hand gestures.  
+It uses a combination of OpenCV-based skin segmentation and Mediapipe hand-tracking for gesture recognition.  
+The camera captures your hand movements, and those movements are mapped to a virtual keyboard displayed on the screen.
 
-How it Works
-
-- **virtual_keyboard.py** → The main logic for webcam capture, hand detection, gesture recognition, and virtual keyboard rendering.
-- **config.py** → Change this if you want to adjust camera index, detection thresholds, keyboard size, debounce timing, etc.
+This is still a prototype version and under active development. Expect upgrades in detection accuracy, gesture recognition, and typing responsiveness in the future.
 
 ---
 
-  Gestures
+## Features
 
-- Finger Pointing → Move cursor over virtual keys.
-- Palm Open → Hover/select mode.
-- Fist (Palm Closed) → Press the selected key.
-- Both Palms Up → Exit the program.
+- Point your finger to move over the virtual keyboard.
+- Close your palm (make a fist) to press keys. A double-press system is used to reduce false positives.
+- Keep your palm open to enable hover or selection mode.
+- Typed text is displayed on-screen, with an option to save it to a file after you exit.
+- The keyboard layout, colors, debounce timing, and other settings can be fully customized in the configuration file.
+- Works directly with your computer’s webcam.
 
 ---
 
- Notes
-- This is a **prototype**, so detection accuracy and gesture recognition are still under development.
-- Works best in well-lit environments with clear hand visibility.
+## Project Structure
+AEROTYPE
+├── virtual_keyboard.py # Main program containing logic for camera input, hand detection, and keyboard rendering
+├── enhanced_config.py # Configuration file for adjusting camera index, thresholds, keyboard layout, colors, etc.
+├── requirements.txt # List of dependencies
+└── README.md # Documentation
 
- Project Structure
+---
 
-VIRTUAL-KEYBOARD
+## Requirements
+
+1. Python version must be **3.8 – 3.10**  
+   (Mediapipe does not support Python 3.11 or higher yet).
+
+2. Required Python libraries are listed in `requirements.txt`:
 
 
-├── virtual_keyboard.py  
-├── config.py            
-├── requirements.txt     
-└── README.md            
+---
 
- Requirements & Dependencies
+## Setting Up Python and Virtual Environment
 
-Before running, make sure you have **Python 3.8+** installed.
+If you already have Python 3.8 – 3.10 installed, you can skip step 1.
 
-Install dependencies using:
+### Step 1. Install Python 3.10  
+Download Python 3.10 from the official [Python website](https://www.python.org/downloads/).  
+During installation, make sure to select the option "Add to PATH".
+
+### Step 2. Create a Virtual Environment  
+It is recommended to use a virtual environment so that dependencies do not conflict with your system Python.
 ```
-pip install -r requirements.txt
+# Create a virtual environment named .venv
+python -m venv .venv
+
+# Activate on Windows
+.venv\Scripts\activate
+
+# Activate on Linux/Mac
+source .venv/bin/activate
 ```
-`requirements.txt` should contain:
+Step 3. Install Dependencies
+After activating the virtual environment, install all required libraries:
+```pip install -r requirements.txt```
+
+
+
+How to Run
+1.Clone the repository
+```git clone https://github.com/Satishhhh989/Aerotype.git```
+```cd Aerotype```
+2.Activate the virtual environment
+```# Windows
+.venv\Scripts\activate
 ```
-opencv-python
-numpy
-cvzone
-pyautogui
-torch
-torchvision
-ultralytics
-```
+```# Linux/Mac
+source .venv/bin/activate```
 
- How to Run
-
-1. Clone the repository
-
-git clone https://github.com/Satishhhh989/Aerotype.git
-
-cd Aerotype
-
-
-2.Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-3. Using Laptop Webcam
-Update config.CAM_INDEX to your laptop’s webcam index (usually 0) in config.py and run:
-bash
-``python virtual_keyboard.py``
-
-
-5. Using Mobile Camera via IP Webcam
-Install IP Webcam (Android) or similar camera streaming app on your phone.
-Connect your phone and PC to the same Wi-Fi network.
-Open the app and start the server  note the stream URL (usually something like http://192.168.x.x:8080/video).
-In virtual_keyboard.py, replace:
-
-``cap = cv2.VideoCapture(config.CAM_INDEX)``
-with:
-
-``cap = cv2.VideoCapture("http://<your_phone_ip>:8080/video")``
-
-5.Run the program
-bash
+Run the program
 python virtual_keyboard.py
+
+
+
